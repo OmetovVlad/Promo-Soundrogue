@@ -18,16 +18,16 @@ async function generateImages(file) {
     const lqip = `${base}.lq.webp`;
 
     if (!fs.existsSync(webp))
-        await sharp(file).webp({ quality: 75 }).toFile(webp);
+        await sharp(file).webp({ quality: 90 }).toFile(webp);
 
     if (!fs.existsSync(avif))
-        await sharp(file).avif({ quality: 50 }).toFile(avif);
+        await sharp(file).avif({ quality: 90 }).toFile(avif);
 
     if (!fs.existsSync(lqip))
         await sharp(file)
             .resize(32)
             .blur()
-            .webp({ quality: 30 })
+            .webp({ quality: 90 })
             .toFile(lqip);
 }
 
@@ -57,28 +57,10 @@ async function processHTML() {
                     node.attrs['data-picture'] = 'true';
 
                     return {
-                        tag: 'picture',
+                        tag: 'img',
                         attrs: {
-                            class: 'progressive',
-                            style: `background-image:url('${base}.lq.webp')`
-                        },
-                        content: [
-                            {
-                                tag: 'source',
-                                attrs: {
-                                    srcset: `${base}.avif`,
-                                    type: 'image/avif'
-                                }
-                            },
-                            {
-                                tag: 'source',
-                                attrs: {
-                                    srcset: `${base}.webp`,
-                                    type: 'image/webp'
-                                }
-                            },
-                            node
-                        ]
+                            src: `${base}.webp`,
+                        }
                     };
                 });
             }
@@ -103,27 +85,39 @@ async function processCSS() {
 
         const root = postcss().process(css, { parser: safeParser }).root;
 
+        // ⚠️ собираем сначала
+        const decls = [];
+
         root.walkDecls(decl => {
+            if (!decl.value) return;
+
             const match = decl.value.match(/url\(([^)]+)\)/);
             if (!match) return;
 
             const url = match[1].replace(/['"]/g, '');
             if (!IMAGE_RE.test(url)) return;
 
+            decls.push(decl);
+        });
+
+        // ✅ модифицируем после обхода
+        decls.forEach(decl => {
+            const match = decl.value.match(/url\(([^)]+)\)/);
+            const url = match[1].replace(/['"]/g, '');
+
             images.add(url);
             const base = url.replace(IMAGE_RE, '');
 
+            // порядок fallback: avif → webp → lq
+            decl.cloneBefore({
+                value: `url(${base}.avif)`
+            });
+
+            decl.cloneBefore({
+                value: `url(${base}.webp)`
+            });
+
             decl.value = `url(${base}.lq.webp)`;
-
-            decl.cloneAfter({
-                value: `url(${base}.webp)`,
-                parent: decl.parent.clone({ nodes: [] })
-            });
-
-            decl.cloneAfter({
-                value: `url(${base}.avif)`,
-                parent: decl.parent.clone({ nodes: [] })
-            });
         });
 
         fs.writeFileSync(filePath, root.toString());

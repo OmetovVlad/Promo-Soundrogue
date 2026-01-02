@@ -4,19 +4,26 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "fonts": "node scripts/fonts.mjs",
     "dev": "vite",
-    "build": "node scripts/html.mjs && node scripts/generateFavicons.mjs && vite build && node scripts/images.mjs",
+    "build": "node scripts/generateFavicons.mjs && vite build && node scripts/images.mjs",
     "preview": "vite preview"
   },
   "devDependencies": {
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.3",
+    "glob": "^13.0.0",
     "postcss": "^8.5.6",
     "postcss-safe-parser": "^7.0.1",
     "posthtml": "^0.16.7",
     "posthtml-include": "^2.0.1",
     "sass": "^1.97.1",
     "sharp": "^0.34.5",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-posthtml": "^0.0.3"
+  },
+  "dependencies": {
+    "swiper": "^12.0.3"
   }
 }

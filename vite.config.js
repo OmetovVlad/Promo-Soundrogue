@@ -1,27 +1,30 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import path from 'path'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 export default defineConfig({
     root: 'src',
     publicDir: '../public',
 
+    plugins: [
+        createHtmlPlugin({
+            minify: false, // чтобы было читаемо
+        }),
+    ],
+
     build: {
         outDir: '../dist',
-        assetsDir: 'assets',
         emptyOutDir: true,
+        assetsDir: 'assets',
 
         rollupOptions: {
             input: {
-                main: '/index.html'
+                main: path.resolve(__dirname, 'src/index.html'),
             },
-            output: {
-                assetFileNames: 'assets/[name]-[hash][extname]',
-                entryFileNames: 'assets/[name]-[hash].js'
-            }
-        }
+        },
     },
 
     server: {
-        open: true
-    }
-});
-
+        open: true,
+    },
+})

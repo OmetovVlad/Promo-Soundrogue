@@ -5,50 +5,465 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promo Soundrogue</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="/favicon-72x72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Advanced technical settings -->
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="[ заголовок страницы ]">
+    <meta property="og:description" content="[ описание страницы ]">
+    <meta property="og:url" content="[ https://demo.com/page.html ]">
+    <meta property="og:site_name" content="[ название проекта/компании ]">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="[ https://demo.com/images/og-image.webp ]">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="[ заголовок страницы ]">
+    <meta name="twitter:description" content="[ описание страницы ]">
+    <meta name="twitter:image" content="[ https://demo.com/images/og-image.webp ]">
+
+    <!--  Styles and scripts  -->
     <link rel="stylesheet" href="/assets/css/main.scss">
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="72x72" href="/favicon-72x72.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
-
-<!-- PWA Manifest -->
-<link rel="manifest" href="/site.webmanifest">
-
-<!-- Advanced technical settings -->
-<meta name="format-detection" content="telephone=no">
-<meta name="format-detection" content="address=no">
-
-<!-- Open Graph -->
-<meta property="og:title" content="[ заголовок страницы ]">
-<meta property="og:description" content="[ описание страницы ]">
-<meta property="og:url" content="[ https://demo.com/page.html ]">
-<meta property="og:site_name" content="[ название проекта/компании ]">
-<meta property="og:locale" content="ru_RU">
-<meta property="og:type" content="website">
-<meta property="og:image" content="[ https://demo.com/images/og-image.webp ]">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="[ заголовок страницы ]">
-<meta name="twitter:description" content="[ описание страницы ]">
-<meta name="twitter:image" content="[ https://demo.com/images/og-image.webp ]">
   </head>
   <body>
     <div id="app">
-      <img src="/assets/images/nature-oblaka-nebo-gori-tyazhelie-voda-110576.jpeg" alt="">
+
+      <div class="header">
+        
+        <div class="container">
+
+          <div class="top">
+            <a href="/" class="logo">
+              <img src="/assets/images/Logo.svg" alt="">
+            </a>
+
+            <button class="burger"></button>
+          </div>
+
+          <div class="menu_wrapper">
+            <div class="menu">
+              <ul>
+                <li><a href="#">360° view</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Key features</a></li>
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">Store</a></li>
+              </ul>
+            </div>
+
+            <a href="#" class="button-black-bordered">
+              <div>
+                <span>Shop now</span>
+                <img src="/assets/images/icons/arrow-link.svg" alt="">
+              </div>
+              <div class="hover">
+                <span>Shop now</span>
+                <img src="/assets/images/icons/arrow-link.svg" alt="">
+              </div>
+            </a>
+          </div>
+
+        </div>
+        
+      </div>
+
+      <div id="hero">
+        <div class="container">
+
+          <h1>
+            <span>MIDI</span>
+            <span class="dot"></span>
+            <span>9</span>
+          </h1>
+
+          <h2>Your First Rack-mounted MIDI Controller</h2>
+
+          <p>Take full control of your workflow directly from the rack</p>
+
+          <img src="/assets/images/hero.png" alt="">
+
+          <div class="button_line">
+            <a href="#" class="button-gradient">
+              <span>Shop Now</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="key_features">
+        <div class="container">
+
+          <div class="swiper">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="icon">
+                    <img src="/assets/images/icons/TwoModes.svg" alt="">
+                  </div>
+                  <div class="text">
+                    <span>Two unique operations mode</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="icon">
+                    <img src="/assets/images/icons/Rack.svg" alt="">
+                  </div>
+                  <div class="text">
+                    <span>Perfect Rack integration</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="icon">
+                    <img src="/assets/images/icons/Knobs.svg" alt="">
+                  </div>
+                  <div class="text">
+                    <span>9 multifunctional knobs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="icon">
+                    <img src="/assets/images/icons/Metal.svg" alt="">
+                  </div>
+                  <div class="text">
+                    <span>Solid black <br>metal</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="icon">
+                    <img src="/assets/images/icons/Led.svg" alt="">
+                  </div>
+                  <div class="text">
+                    <span>Customizable <br>LED</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="screen2">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="title">
+              <h2><span>Swift</span> Mode</h2>
+              <p>Full-turn movements for fast, responsive <br>adjustments — ideal for production phase.</p>
+            </div>
+
+            <img src="/assets/images/Midi9-003.png" alt="">
+
+          </div>
+        </div>
+      </div>
+
+      <div id="screen3">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="title">
+              <h2><span>Presicion</span> Mode</h2>
+              <p>Fine tuned control. <br>Ideal for mixing and mastering</p>
+            </div>
+
+            <img src="/assets/images/Midi9-011.png" alt="">
+
+          </div>
+        </div>
+      </div>
+
+      <div id="screen4">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="swiper">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="card">
+                    <div class="image">
+                      <img src="/assets/images/Design.jpg" alt="">
+                    </div>
+                    <div class="text">
+                      <h3><span>Minimalistic</span> Design</h3>
+                      <span>The MIDI-9 is compact, stylish, and built to fit perfectly in your rack alongside analog gear. Its clean look works in any studio setup.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="card">
+                    <div class="image">
+                      <img src="/assets/images/LED.jpg" alt="">
+                    </div>
+                    <div class="text">
+                      <h3><span>Customizable</span> Led</h3>
+                      <span>Personalization is key when working in a creative environment. Adjust the LED colors to match your workflow, or studio vibe.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="card">
+                    <div class="image">
+                      <img src="/assets/images/Knobs.jpg" alt="">
+                    </div>
+                    <div class="text">
+                      <h3><span>Solid Metal</span> Knobs</h3>
+                      <span>Every knob on the MIDI-9 is crafted from solid black metal, designed for an analog feel precise tactile control.</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="screen5">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="title">
+              <h2><span>Pro-level control</span> without desk clutter</h2>
+              <p>MIDI-9 is different from other controllers. It's built for professionals <br>who need precise, tactile, and analog control of their setup without desk clutter.</p>
+            </div>
+
+            <div class="content">
+
+              <div class="swiper">
+                <div class="swiper-wrapper">
+
+                  <div class="swiper-slide">
+                    <div class="card selected">
+                      <div class="name">MIDI-9</div>
+                      <div class="image">
+                        <img src="/assets/images/hero.png" alt="">
+                      </div>
+                      <div class="text">
+                        <span>Rack-mounted format - keeps your desk clean</span>
+                        <span>High-precision encoders for maximum control</span>
+                        <span>Two modes - Precision and Swift, for both fine-tuning and fast workflow</span>
+                        <span>Minimalist design - only what you need, nothing extra</span>
+                        <span>Built with studio UX in mind - feels like analog gear</span>
+                        <span>Recall Function</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="card">
+                      <div class="name">Desktop midi controller</div>
+                      <div class="image">
+                        <img src="/assets/images/Midi-controller.png" alt="">
+                      </div>
+                      <div class="text">
+                        <span>Sits on your desk, often leading to cable clutter</span>
+                        <span>Single mode - same step size every time</span>
+                        <span>Small, low-quality knobs that feel light and flimsy<br><br></span>
+                        <span>Complex interface: keys, pads, knobs all in one unit</span>
+                        <span>Offers too many features - lacking in intuitive UX</span>
+                        <span>No Recall Function</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen7">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="title">
+              <h2><span>Included with your</span> MIDI-9 purchase</h2>
+            </div>
+
+            <div class="content">
+              <img src="/assets/images/ozoneInterface.png" alt="">
+              
+              <div class="description">
+                <img src="/assets/images/ozone-logo.svg" alt="">
+
+                <p>If your track needs it, Ozone has it. Cover every part of a modern mastering chain - plus hidden- gem tools to do even more with 20 full- featured modules, all in a single mastering hub. Streamline the full process and avoid the unnecessary cost of tons of separate plugins.</p>
+                <p>Ozone fits your approach to mastering. Build your chain from scratch, or let the Al-powered Master Assistant create a tailor-made preset for your audio, and tweak from there.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen8">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="content">
+              <img src="/assets/images/MIDI-9-your-logo.png" alt="">
+
+              <div class="title">
+                <h2>Make your <span>MIDI-9 truly yours</span></h2>
+                <p>Add your name, or studio logo to your MIDI-9. Custom engraving available as an optional add- on for every unit.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="screen9">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="title">
+              <h2>Built with Grammy-nominated <br><span>producer Timofey Reznikov</span></h2>
+            </div>
+
+            <div class="content">
+              <img src="/assets/images/Timo.jpg" alt="">
+
+              <div class="description">
+                <p>"As a producer and mix & mastering engineer, I always wanted a simple, reliable MIDI controller that fits into my rack setup. That's why we built MIDI-9. It's compact, intuitive, and does exactly what I need. I use it in every session, and I'm
+                  excited to finally share it with you."</p>
+                <p class="q">
+                  <b>Timofey Reznikov -</b> 2x Grammy nominated producer
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="screen10">
+        <div class="container">
+
+          <div class="video">
+            <div class="title">
+              <h2>See <span>MIDI-9 in action</span></h2>
+            </div>
+
+            <iframe id="yt-player" src="https://www.youtube.com/embed/t4GeRD7HjJI?enablejsapi=1&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="play"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="screen11">
+        <div class="container">
+          <div class="bg-gradient">
+
+            <div class="title">
+              <h2>Get your MIDI-9 today <span>with an exclusive software <br>bundle to kickstart</span> your creative journey</h2>
+            </div>
+
+            <div class="content">
+              <img src="/assets/images/Midi9_black_01.png" alt="">
+              <img src="/assets/images/Midi9_blue_01.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer">
+        <div class="bg-gradient">
+          <div class="container">
+
+            <div class="form">
+
+              <div class="thankYou">
+                <div class="text">Thank you!</div>
+                <div class="sub">Your submission has been received</div>
+              </div>
+
+              <div class="text">Join our newsletter to get exclusive <br>deals and updates</div>
+
+              <form id="subscribe-form" novalidate action="" method="post">
+                <input type="email" name="email" id="email" placeholder="Enter your email address">
+                <input type="submit" value="Subscribe">
+              </form>
+
+            </div>
+
+            <div class="company_data">
+              <div class="address_data">
+                <span class="name">Sound Rogue ApS</span>
+                <span>Kjelding Høj 39<br>7600 Struer<br>Denmark</span>
+              </div>
+
+              <a href="mailto:soundroguemusic@gmail.com">info@soundrogue.com</a>
+              <div class="social_link_list">
+                <a href="http://instagram.com/sound.rogue" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM11.999 5.60059C10.2623 5.60059 10.0438 5.60761 9.36133 5.63867C8.68022 5.66989 8.21544 5.7783 7.80859 5.93652C7.38776 6.09995 7.03045 6.31812 6.6748 6.67383C6.3188 7.02957 6.09955 7.38681 5.93555 7.80762C5.77688 8.21468 5.66934 8.68027 5.63867 9.36133C5.60815 10.0438 5.59961 10.2622 5.59961 12C5.59961 13.7382 5.60774 13.956 5.63867 14.6387C5.67001 15.3196 5.77754 15.7846 5.93555 16.1914C6.0991 16.6122 6.31816 16.9696 6.67383 17.3252C7.02943 17.6812 7.38695 17.901 7.80762 18.0645C8.21478 18.2227 8.68022 18.3301 9.36133 18.3613C10.0438 18.3924 10.2622 18.4004 12 18.4004C13.7381 18.4004 13.956 18.3924 14.6387 18.3613C15.3197 18.3301 15.7853 18.2227 16.1924 18.0645C16.6132 17.901 16.9696 17.6812 17.3252 17.3252C17.6811 16.9696 17.9005 16.613 18.0645 16.1924C18.2218 15.7853 18.3293 15.3197 18.3613 14.6387C18.392 13.956 18.4004 13.7382 18.4004 12C18.4004 10.2621 18.392 10.0439 18.3613 9.36133C18.3293 8.67999 18.2218 8.21455 18.0645 7.80762C17.9005 7.3867 17.6812 7.02955 17.3252 6.67383C16.9694 6.31808 16.6134 6.09981 16.1924 5.93652C15.7845 5.77829 15.3188 5.6699 14.6377 5.63867C13.9551 5.60761 13.7373 5.60059 11.999 5.60059Z" fill="#B8B9BA"></path>
+                    <path d="M11.4268 6.75293C11.5971 6.75266 11.7875 6.75293 12.001 6.75293C13.7094 6.75293 13.9122 6.75937 14.5869 6.79004C15.2108 6.81858 15.5498 6.92315 15.7754 7.01074C16.0739 7.12671 16.287 7.26535 16.5107 7.48926C16.7347 7.7132 16.873 7.92698 16.9893 8.22559C17.0768 8.45091 17.1816 8.78941 17.21 9.41309C17.2406 10.0878 17.2471 10.291 17.2471 11.999C17.2471 13.7066 17.2406 13.9094 17.21 14.584C17.1814 15.2077 17.0768 15.5462 16.9893 15.7715C16.8733 16.07 16.7346 16.2831 16.5107 16.5068C16.2869 16.7307 16.0739 16.8694 15.7754 16.9854C15.5501 17.0733 15.2108 17.1775 14.5869 17.2061C13.9123 17.2367 13.7094 17.2441 12.001 17.2441C10.292 17.2441 10.0887 17.2367 9.41406 17.2061C8.7903 17.1772 8.45127 17.0729 8.22559 16.9854C7.92718 16.8694 7.71411 16.7307 7.49023 16.5068C7.26623 16.2828 7.12701 16.0703 7.01074 15.7715C6.92314 15.5461 6.81941 15.207 6.79102 14.583C6.76036 13.9086 6.75391 13.7057 6.75391 11.9971C6.75391 10.288 6.76035 10.0858 6.79102 9.41113C6.81957 8.78779 6.92319 8.44918 7.01074 8.22363C7.12674 7.92496 7.26623 7.71131 7.49023 7.4873C7.71406 7.2635 7.92724 7.125 8.22559 7.00879C8.45114 6.92081 8.79031 6.81678 9.41406 6.78809C10.0045 6.76142 10.2339 6.75329 11.4268 6.75195V6.75293ZM12 8.71387C10.1852 8.71419 8.71391 10.1852 8.71387 12C8.71387 13.8151 10.1859 15.2861 12.001 15.2861C13.8159 15.2859 15.2871 13.815 15.2871 12C15.2871 10.185 13.8151 8.71387 12 8.71387ZM15.417 7.81543C14.993 7.81543 14.6484 8.15985 14.6484 8.58398C14.6486 9.00785 14.9931 9.35156 15.417 9.35156C15.8409 9.35151 16.1844 9.00782 16.1846 8.58398C16.1846 8.16001 15.841 7.81548 15.417 7.81543Z" fill="#B8B9BA"></path>
+                    <path d="M12.0006 9.8667C13.1787 9.8667 14.134 10.8218 14.134 12.0001C14.134 13.1782 13.1787 14.1334 12.0006 14.1334C10.8223 14.1334 9.86725 13.1782 9.86725 12.0001C9.86725 10.8218 10.8223 9.8667 12.0006 9.8667Z" fill="#B8B9BA"></path>
+                  </svg>
+                  <span>Instagram</span>
+                </a>
+                <a href="http://facebook.com/soundrogue" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM13.4766 6C11.3116 6.00001 10.5498 7.0914 10.5498 8.92676V10.2773H9.2002V12.5273H10.5498V19.0557H13.251V12.5273H15.0527L15.292 10.2773H13.251L13.2539 9.15137C13.2539 8.56459 13.3096 8.25001 14.1523 8.25H15.2793V6H13.4766Z" fill="#B8B9BA"></path>
+                  </svg>
+                  <span>Facebook</span>
+                </a>
+              </div>
+              <div class="link_list">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
     <script type="module" src="/assets/js/main.js"></script>
   </body>

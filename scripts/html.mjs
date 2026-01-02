@@ -1,30 +1,22 @@
-import fs from 'fs/promises';
-import path from 'path';
-import posthtml from 'posthtml';
-import include from 'posthtml-include';
+import fs from 'fs'
+import path from 'path'
+import posthtml from 'posthtml'
+import include from 'posthtml-include'
+import { glob } from 'glob'
 
-const src = path.resolve('src/pages');
+const SRC = path.resolve('src')
 
-async function process(file) {
-    const filePath = path.join(src, file);
-    const html = await fs.readFile(filePath, 'utf-8');
+const files = await glob('src/**/*.html', {
+    ignore: ['src/partials/**'],
+})
+
+for (const file of files) {
+    const html = fs.readFileSync(file, 'utf8')
 
     const result = await posthtml([
-        include({ root: path.resolve('src') })
-    ]).process(html);
+        include({ root: SRC }),
+    ]).process(html)
 
-    await fs.writeFile(filePath, result.html);
+    fs.writeFileSync(file, result.html)
+    console.log('🧩 include:', file)
 }
-
-async function run() {
-    const files = await fs.readdir(src);
-    const htmlFiles = files.filter(f => f.endsWith('.html'));
-
-    for (const file of htmlFiles) {
-        await process(file);
-    }
-
-    console.log('✅ HTML includes done (src)');
-}
-
-run();

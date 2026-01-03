@@ -109,15 +109,15 @@ async function processCSS() {
             const base = url.replace(IMAGE_RE, '');
 
             // порядок fallback: avif → webp → lq
-            decl.cloneBefore({
-                value: `url(${base}.avif)`
-            });
+            // decl.cloneBefore({
+            //     value: `url(${base}.avif)`
+            // });
 
             decl.cloneBefore({
                 value: `url(${base}.webp)`
             });
 
-            decl.value = `url(${base}.lq.webp)`;
+            // decl.value = `url(${base}.lq.webp)`;
         });
 
         fs.writeFileSync(filePath, root.toString());

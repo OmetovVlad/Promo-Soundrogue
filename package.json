@@ -6,7 +6,7 @@
   "scripts": {
     "fonts": "node scripts/fonts.mjs",
     "dev": "vite",
-    "build": "node scripts/generateFavicons.mjs && vite build && node scripts/images.mjs",
+    "build": "node scripts/generateFavicons.mjs && vite build && node scripts/images.mjs && node scripts/move-assets.mjs && node scripts/rewrite-paths.mjs",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -24,6 +24,8 @@
     "vite-plugin-posthtml": "^0.0.3"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
+    "gsap": "^3.14.2",
     "swiper": "^12.0.3"
   }
 }

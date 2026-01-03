@@ -1,17 +1,115 @@
+import { Modal } from 'bootstrap';
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 
-// styles (ВАЖНО)
+import './gsap.js'
+
+// styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+// Smooth Anchors
+
+function getHeaderOffset() {
+    const header = 0 //document.querySelector('.header');
+    return header ? header.offsetHeight : 0;
+}
+
+function initSmoothAnchors() {
+    const OFFSET = getHeaderOffset();
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+
+        const id = link.getAttribute('href');
+        if (id === '#' || id === '') return;
+
+        const target = document.querySelector(id);
+        if (!target) return;
+
+        e.preventDefault();
+
+        const header = document.querySelector('.header');
+        if (header && header.classList.contains('open')) {
+            header.classList.remove('open');
+        }
+
+        const y =
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            OFFSET;
+
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth',
+        });
+    });
+}
+
+initSmoothAnchors()
+
+// Modals
+function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+}
+
+document.addEventListener('show.bs.modal', () => {
+    const scrollbarWidth = getScrollbarWidth();
+
+    document.documentElement.classList.add('modal-open');
+    document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
+
+    document.body.style.paddingRight = '';
+});
+
+document.addEventListener('hidden.bs.modal', () => {
+    document.documentElement.classList.remove('modal-open');
+    document.documentElement.style.paddingRight = '';
+
+    document.body.style.paddingRight = '';
+});
+
+function initItemModals() {
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.item[data-modal]');
+        if (!item) return;
+
+        // ⛔ защита от свайпа
+        if (item.classList.contains('swiper-slide') && isSwiping) return;
+
+        const selector = item.dataset.modal;
+        const modalEl = document.querySelector(selector);
+        if (!modalEl) return;
+
+        const modal = Modal.getOrCreateInstance(modalEl);
+        modal.show();
+    });
+}
+
+// Mobile menu
+function openMenu() {
+    const header = document.querySelector('.header');
+    const burger = header.querySelector('.burger');
+    burger.addEventListener('click', () => {
+        header.classList.toggle('open');
+    })
+}
+
+openMenu();
+
+// Form validation
 function subscribeFormValidation() {
-    const form = document.getElementById('subscribe-form');
+    const form = document.querySelector('#footer form');
     if (!form) return;
 
-    const wrapper = form.closest('.form');
+    const wrapper = form.closest('.form'); // если есть
     const emailInput = form.querySelector('input[type="email"]');
+    const error = form.querySelector('.input-error');
+
+    if (!emailInput) return;
+
     let isSubmitted = false;
 
     // focus / blur
@@ -25,20 +123,20 @@ function subscribeFormValidation() {
 
     // submit
     form.addEventListener('submit', (e) => {
-        e.preventDefault();
         isSubmitted = true;
 
-        if (validate()) {
-            // ✅ добавляем ok
-            if (wrapper) {
-                wrapper.classList.add('ok');
+        if (!validate()) {
+            e.preventDefault(); // ⛔ блокируем ТОЛЬКО если ошибка
+            return;
+        }
 
-                setTimeout(() => {
-                    wrapper.classList.remove('ok');
-                }, 10000);
-            }
+        // ✅ success state (НЕ мешает MC4WP)
+        if (wrapper) {
+            wrapper.classList.add('ok');
 
-            form.submit(); // стандартная отправка
+            setTimeout(() => {
+                wrapper.classList.remove('ok');
+            }, 10000);
         }
     });
 
@@ -54,6 +152,10 @@ function subscribeFormValidation() {
 
         form.classList.toggle('is-valid', isValid);
         form.classList.toggle('is-invalid', !isValid);
+
+        if (error) {
+            error.style.display = isValid ? 'none' : 'block';
+        }
 
         return isValid;
     }
@@ -124,7 +226,7 @@ videoIndexPage();
 
 
 // SLIDERS
-let keyFeatures, screenFour, screenFive;
+let keyFeatures, screenFour, screenFive, screenSix ;
 
 function getRemPx() {
     return parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -196,6 +298,32 @@ function initSwiper() {
 
 initSwiper();
 
+
+function initItemsSwiper() {
+    const container = document.querySelector('.items_list.software');
+    if (!container) return;
+
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile && !screenSix) {
+        screenSix = new Swiper(container, {
+            loop: false,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            spaceBetween: remToPx(0.44444444),
+        });
+    }
+
+    if (!isMobile && screenSix) {
+        screenSix.destroy(true, true);
+        screenSix = null;
+    }
+}
+
+initItemsSwiper();
+
+window.addEventListener('resize', initItemsSwiper);
+
 window.addEventListener('resize', () => {
     keyFeatures.params.spaceBetween =
         window.innerWidth >= 768
@@ -217,4 +345,11 @@ window.addEventListener('resize', () => {
             : remToPx(0.44444444);
 
     screenFive.update();
+
+    screenSix.params.spaceBetween =
+        window.innerWidth >= 768
+            ? remToPx(1)
+            : remToPx(0.44444444);
+
+    screenSix.update();
 });
